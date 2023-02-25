@@ -1,3 +1,6 @@
+import logo from './logo.svg';
+import './App.css';
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Col, Container, Row } from "reactstrap";
@@ -11,12 +14,7 @@ function App() {
     axios.get("http://localhost:8080/api/list").then(({ data }) => setPro(data));
   };
 
-  useEffect(() => {
-    cargaPro();
-    const interval = setInterval(() => cargaPro(), 1 * 500);
-    return () => clearInterval(interval);
-  }, []);
-
+  useEffect(cargaPro, []);
   return (
     <>
     <Container>
