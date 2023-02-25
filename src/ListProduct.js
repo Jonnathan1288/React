@@ -18,6 +18,7 @@ const ListProduct = ({ productos, setProductos }) => {
 
   return (
     <>
+    <center><h2>Jonnathan Gallegos M5B</h2></center>
       <h3 className="mb-3 mt-2">Lista de Productos</h3>
       {productos.map((pro) => (
         <div className="mb-3 border rounded p-3" key={pro._id}>
