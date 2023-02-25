@@ -15,10 +15,22 @@ const ListProduct = ({ productos, setProductos }) => {
       });
   };
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      axios.get("https://reactback-production.up.railway.app/api/list")
+        .then(({ data }) => {
+          setProductos(data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [setProductos]);
 
   return (
     <>
-    <center><h2>Jonnathan Gallegos M5B</h2></center>
       <h3 className="mb-3 mt-2">Lista de Productos</h3>
       {productos.map((pro) => (
         <div className="mb-3 border rounded p-3" key={pro._id}>
