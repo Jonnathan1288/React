@@ -15,19 +15,6 @@ const ListProduct = ({ productos, setProductos }) => {
       });
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      axios.get("https://reactback-production.up.railway.app/api/list")
-        .then(({ data }) => {
-          setProductos(data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, [setProductos]);
 
   return (
     <>
